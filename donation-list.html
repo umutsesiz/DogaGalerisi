@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bağışlarım - Doğa Galerisi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="sss.html">SSS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Bağışlarınız</h1>
+        <div id="donation-list">
+            <p>Bağışlarınız yükleniyor...</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Doğa Galerisi. Tüm Hakları Saklıdır.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                alert('Bağışlarınızı görmek için giriş yapmanız gerekiyor!');
+                window.location.href = 'login.html';
+            } else {
+                try {
+                    const response = await fetch('http://localhost:5000/api/donations', {
+                        method: 'GET',
+                        headers: { 'Authorization': token },
+                    });
+
+                    const donations = await response.json();
+                    const donationList = document.getElementById('donation-list');
+
+                    if (response.ok) {
+                        donationList.innerHTML = `
+                            <ul>
+                                ${donations.map(donation => `
+                                    <li>
+                                        <strong>Tarih:</strong> ${new Date(donation.date).toLocaleString()} <br>
+                                        <strong>Miktar:</strong> ${donation.amount} TL
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        `;
+                    } else {
+                        donationList.innerHTML = `<p>${donations.error || 'Bağışlarınızı getirirken bir hata oluştu.'}</p>`;
+                    }
+                } catch (error) {
+                    document.getElementById('donation-list').innerHTML = `<p>Bağışlar yüklenemedi. Lütfen tekrar deneyin.</p>`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

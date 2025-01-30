@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Doğa Galerisi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="sss.html">SSS</a></li>
+                <li id="auth-links">
+                    <a href="login.html" id="login-link">Giriş Yap</a> /
+                    <a href="register.html" id="register-link">Kayıt Ol</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact">
+            <h1>Bizimle İletişime Geçin</h1>
+            <form onsubmit="submitForm(event)">
+                <label for="name">Adınız:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <input type="submit" value="Gönder">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Doğa Galerisi. Tüm Hakları Saklıdır.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authLinks = document.getElementById('auth-links');
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                authLinks.innerHTML = `
+                    <a href="donate.html">Bağış Yap</a> |
+                    <a href="donation-list.html">Bağışlarım</a> |
+                    Hoş geldiniz! <a href="#" id="logout-link">Çıkış Yap</a>
+                `;
+                document.getElementById('logout-link').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('token');
+                    alert('Çıkış yaptınız!');
+                    location.reload();
+                });
+            }
+        });
+
+        async function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const response = await fetch('http://localhost:5000/api/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            if (response.ok) {
+                alert('Mesajınız kaydedildi!');
+            } else {
+                alert('Mesaj gönderilemedi.');
+            }
+        }
+    </script>
+</body>
+</html>

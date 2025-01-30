@@ -1,0 +1,269 @@
+/* Genel Ayarlar */
+body { /* Sayfanın tamamının genel ayarlarını kontrol eder */
+    margin: 0; /* Sayfa kenar boşluklarını kaldırır */
+    font-family: Arial, sans-serif; /* Yazı tipini belirler */
+    background-color: #f5f5f5; /* Sayfa arka plan rengini belirler */
+    color: #333; /* Varsayılan metin rengini belirler */
+    line-height: 1.6; /* Satır yüksekliğini ayarlar */
+}
+
+header { /* Sayfanın en üst kısmındaki başlık alanını kontrol eder */
+    background-color: #4CAF50; /* Başlık arka plan rengini belirler */
+    color: white; /* Başlık metin rengini beyaz yapar */
+    padding: 10px 0; /* Başlığa üst ve alt boşluk ekler */
+}
+
+nav ul { /* Başlık içindeki menü listesini kontrol eder */
+    list-style: none; /* Liste işaretlerini kaldırır */
+    padding: 0; /* Liste iç dolgusunu kaldırır */
+    margin: 0; /* Liste dış boşluğunu kaldırır */
+    display: flex; /* Elemanları yatay hizalar */
+    justify-content: center; /* Elemanları merkezde hizalar */
+}
+
+nav ul li { 
+    margin: 0 15px; /* Liste elemanları arasına boşluk bırakır */
+}
+
+nav ul li a { /* Navigasyon menüsündeki linklerin stilini kontrol eder */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    color: white; /* Link metin rengini beyaz yapar */
+    font-weight: bold; /* Yazı tipini kalın yapar */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Üzerine gelindiğinde alt çizgi ekler */
+}
+
+.hero { /* Anasayfadaki ana mesaj bölgesini kontrol eder */
+    text-align: center; /* Metni ortalar */
+    padding: 50px 20px; /* İç boşluk ekler */
+    background-color: #e8f5e9; /* Arka plan rengini belirler */
+}
+
+.hero img {
+    max-width: 100%; /* Görüntünün genişliğini konteynıra uyarlar */
+    height: auto; /* Görüntü oranını korur */
+    border-radius: 10px; /* Görüntü kenarlarını yuvarlatır */
+}
+
+footer { /* Sayfanın en altındaki altbilgi alanını kontrol eder */
+    text-align: center; /* Metni ortalar */
+    background-color: rgba(51, 51, 51, 0.5); /* Saydam arka plan rengi ekler */
+    color: white; /* Metin rengini beyaz yapar */
+    padding: 10px 0; /* Üst ve alt boşluk ekler */
+    position: fixed; /* Sabit konumlandırır */
+    bottom: 0; /* Alt kısma sabitler */
+    width: 100%; /* Genişliği tam ekran yapar */
+}
+
+.dunya-icon { /* Başlıkta yer alan dünya ikonunun stilini kontrol eder */
+    position: absolute; /* Serbest konumlandırma */
+    top: 0px; /* Üstten uzaklık */
+    left: 10px; /* Soldan uzaklık */
+    width: 50px; /* Görüntü genişliğini belirler */
+    height: auto; /* Görüntü oranını korur */
+    z-index: 1000; /* Görüntüyü üstte tutar */
+}
+
+/* Galeri Bölümü */
+.gallery { /* Galeri sayfasındaki ana bölgeyi kontrol eder */
+    text-align: center; /* Metni ortalar */
+    padding: 50px 20px; /* İç boşluk ekler */
+    background-color: #ffffff; /* Arka plan rengini beyaz yapar */
+}
+
+.gallery-grid {
+    display: grid; /* Izgara düzeni oluşturur */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dinamik sütun genişlikleri ayarlar */
+    gap: 20px; /* Elemanlar arasında boşluk bırakır */
+    margin: 20px 0; /* Üst ve alt boşluk ekler */
+}
+
+.gallery-item img {
+    width: 100%; /* Görüntü genişliğini konteynıra uyarlar */
+    height: auto; /* Görüntü oranını korur */
+    border-radius: 10px; /* Görüntü kenarlarını yuvarlatır */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti ekler */
+    transition: transform 0.3s ease; /* Geçiş animasyonu ekler */
+}
+
+.image-title {
+    font-size: 1.2em; /* Yazı boyutunu belirler */
+    font-weight: bold; /* Yazıyı kalın yapar */
+    margin-bottom: 10px; /* Alt boşluk ekler */
+    color: #333; /* Yazı rengini belirler */
+}
+
+/* Hakkımızda Bölümü */
+.about { /* Hakkımızda sayfasındaki ana bölgeyi kontrol eder */
+    text-align: center; /* Metni ortalar */
+    padding: 50px 20px; /* İç boşluk ekler */
+    background-color: #f9fbe7; /* Arka plan rengini belirler */
+    color: #333; /* Metin rengini belirler */
+}
+
+.about h1 {
+    font-size: 2.5em; /* Başlık yazı boyutunu belirler */
+    margin-bottom: 20px; /* Alt boşluk ekler */
+}
+
+.about p {
+    max-width: 800px; /* Metin genişliğini sınırlar */
+    margin: 0 auto 20px; /* Ortalar ve alt boşluk ekler */
+    font-size: 1.2em; /* Yazı boyutunu belirler */
+    line-height: 1.8; /* Satır yüksekliğini ayarlar */
+}
+
+.team {
+    margin-top: 30px; /* Üst boşluk ekler */
+}
+
+.team h2 {
+    font-size: 2em; /* Alt başlık yazı boyutunu belirler */
+    margin-bottom: 15px; /* Alt boşluk ekler */
+}
+
+.team ul {
+    list-style: none; /* Liste işaretlerini kaldırır */
+    padding: 0; /* İç boşlukları kaldırır */
+}
+
+.team ul li {
+    font-size: 1.1em; /* Liste elemanı yazı boyutunu belirler */
+    margin-bottom: 10px; /* Alt boşluk ekler */
+}
+
+/* İletişim Bölümü */
+.contact { /* İletişim sayfasındaki ana bölgeyi kontrol eder */
+    text-align: center; /* Metni ortalar */
+    padding: 50px 20px; /* İç boşluk ekler */
+    background-color: #f1f8e9; /* Arka plan rengini belirler */
+    color: #333; /* Metin rengini belirler */
+}
+
+.contact h1 {
+    font-size: 2.5em; /* Başlık yazı boyutunu belirler */
+    margin-bottom: 20px; /* Alt boşluk ekler */
+}
+
+.contact form {
+    max-width: 600px; /* Form genişliğini sınırlar */
+    margin: 0 auto; /* Formu ortalar */
+    text-align: left; /* Metni sola hizalar */
+    background-color: #ffffff; /* Form arka plan rengini beyaz yapar */
+    padding: 20px; /* İç boşluk ekler */
+    border-radius: 8px; /* Köşeleri yuvarlatır */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti ekler */
+}
+
+.contact form label {
+    font-size: 1.1em; /* Etiket yazı boyutunu belirler */
+    margin-bottom: 5px; /* Alt boşluk ekler */
+}
+
+.contact form input, .contact form textarea {
+    width: 100%; /* Genişliği tam yapar */
+    padding: 10px; /* İç boşluk ekler */
+    margin-bottom: 15px; /* Alt boşluk ekler */
+    border: 1px solid #ddd; /* Kenarlık ekler */
+    border-radius: 4px; /* Köşeleri yuvarlatır */
+    font-size: 1em; /* Yazı boyutunu belirler */
+    resize: none; /* Yeniden boyutlandırmayı devre dışı bırakır */
+}
+
+.contact form input[type="submit"] {
+    background-color: #4CAF50; /* Buton arka plan rengini belirler */
+    color: white; /* Yazı rengini beyaz yapar */
+    font-size: 1.1em; /* Buton yazı boyutunu belirler */
+    cursor: pointer; /* İşaretçiyi değiştirir */
+}
+
+.contact form input[type="submit"]:hover {
+    background-color: #45a049; /* Üzerine gelindiğinde arka plan rengini değiştirir */
+}
+
+/* SSS Bölümü */
+.faq { /* SSS sayfasındaki ana bölgeyi kontrol eder */
+    text-align: center; /* Metni ortalar */
+    padding: 50px 20px; /* İç boşluk ekler */
+    background-color: #eef7e7; /* Arka plan rengini belirler */
+    color: #333; /* Metin rengini belirler */
+}
+
+.faq h1 {
+    font-size: 2.5em; /* Başlık yazı boyutunu belirler */
+    margin-bottom: 20px; /* Alt boşluk ekler */
+}
+
+.faq-item {
+    background-color: #ffffff; /* SSS öğesi arka plan rengini beyaz yapar */
+    margin: 20px auto; /* Üst ve alt boşluk ekler, ortalar */
+    padding: 20px; /* İç boşluk ekler */
+    width: 80%; /* SSS öğesi genişliğini sınırlar */
+    max-width: 800px; /* Maksimum genişlik belirler */
+    border-radius: 8px; /* Köşeleri yuvarlatır */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti ekler */
+}
+
+.faq-item h2 {
+    font-size: 1.8em; /* Alt başlık yazı boyutunu belirler */
+    color: #4CAF50; /* Başlık rengini belirler */
+}
+
+.faq-item p {
+    font-size: 1.2em; /* Paragraf yazı boyutunu belirler */
+    line-height: 1.6; /* Satır yüksekliğini ayarlar */
+    margin-top: 10px; /* Üst boşluk ekler */
+}
+
+/* Genel Form Stilleri */
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+body {
+    background-color: #f5f5f5; /* Arka plan rengi */
+    font-family: Arial, sans-serif; /* Yazı tipi */
+}

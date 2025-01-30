@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa - Doğa Galerisi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="sss.html">SSS</a></li>
+                <li id="auth-links">
+                    <a href="login.html" id="login-link">Giriş Yap</a> /
+                    <a href="register.html" id="register-link">Kayıt Ol</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Doğanın Gücüne Hoş Geldiniz</h1>
+            <p>Doğayı keşfetmek ve güzellikleri paylaşmak için buradayız.</p>
+            <img src="assets/manzara.jpg" alt="Doğa Manzarası">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Doğa Galerisi. Tüm Hakları Saklıdır.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authLinks = document.getElementById('auth-links');
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                authLinks.innerHTML = `
+                    <a href="donate.html">Bağış Yap</a> |
+                    <a href="donation-list.html">Bağışlarım</a> |
+                    Hoş geldiniz! <a href="#" id="logout-link">Çıkış Yap</a>
+                `;
+                document.getElementById('logout-link').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('token');
+                    alert('Çıkış yaptınız!');
+                    location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

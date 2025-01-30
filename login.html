@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Doğa Galerisi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="sss.html">SSS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Giriş Yap</h1>
+        <form onsubmit="login(event)">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Giriş Yap">
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Doğa Galerisi. Tüm Hakları Saklıdır.</p>
+    </footer>
+    <script>
+        async function login(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert('Giriş başarılı!');
+                localStorage.setItem('token', result.token);
+                window.location.href = 'index.html';
+            } else {
+                alert(result.error || 'Bir hata oluştu.');
+            }
+        }
+    </script>
+</body>
+</html>
